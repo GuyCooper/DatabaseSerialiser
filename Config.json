@@ -1,0 +1,43 @@
+﻿{
+  "Datasource" :  "Data Source=DESKTOP-JJ9QOJA\\SQLEXPRESS;Initial Catalog=InvestmentBuilderTest2;Integrated Security=True",
+  "Tables": [
+    {
+      "Name": "Accounts",
+      "Query": "select A.Name, A.[Description], A.Currency, AT.[Type], A.[Enabled], A.[Broker] from Accounts A inner join AccountTypes AT on A.[Type_Id] = AT.[Type_Id]",
+      "Filename": "accounts.ser",
+      "Columns": [
+        {
+          "Name": "Name"
+        },
+        {
+          "Name": "Description"
+        },
+        {
+          "Name": "Currency"
+        },
+        {
+          "Name": "Type"
+        },
+        {
+          "Name": "Enabled"
+        },
+        {
+          "Name": "Broker"
+        }
+      ]
+    },
+    {
+      "Name": "Users",
+      "Query": "select [UserName], [Description] from Users",
+      "Filename": "users.ser",
+      "Columns": [
+        {
+          "Name": "UserName"
+        },
+        {
+          "Name": "Description"
+        }
+      ]
+    }
+  ]
+}
