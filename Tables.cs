@@ -79,7 +79,7 @@ namespace DatabaseSerialiser
         /// <summary>
         /// List of fields in record
         /// </summary>
-        public List<Field> Fields { get; private set; } = new List<Field>();
+        public List<object> Fields { get; private set; } = new List<object>();
     }
 
     /// <summary>
@@ -114,8 +114,23 @@ namespace DatabaseSerialiser
     public class Column
     {
         /// <summary>
-        /// Name of column as it appears in database table
+        /// Name of column as it appears in the select statement from the table
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Name of column as it appears in the INSERT statement for the table
+        /// </summary>
+        public string InsertName { get; set; }
+
+        /// <summary>
+        /// Foreign table name if column joined on another table
+        /// </summary>
+        public string ForeignTable { get; set; }
+
+        /// <summary>
+        /// Foreign key name if column joined on another table
+        /// </summary>
+        public string ForeignKeyName { get; set; }
     }
 }

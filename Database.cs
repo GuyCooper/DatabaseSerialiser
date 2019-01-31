@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
 
 namespace DatabaseSerialiser
 {
@@ -49,7 +51,7 @@ namespace DatabaseSerialiser
                             var record = new Record();
                             foreach(var column in table.Columns)
                             {
-                                record.Fields.Add(new Field(column.Name, reader[column.Name]));
+                                record.Fields.Add(reader[column.Name]);
                             }
 
                             //serialise the record object into the serialiser
@@ -67,17 +69,128 @@ namespace DatabaseSerialiser
         {
             Console.WriteLine($"table {table.Name}");
             Record record = serialiser.DeserialiseRecord();
-            DisplayRecord(record);
+            while(record != null)
+            {
+                DisplayRecord(table, record);
+                AddRecord(table, record);
+                record = serialiser.DeserialiseRecord();
+            }
+        }
+
+        /// <summary>
+        /// Adds a record to the database
+        /// </summary>
+        private void AddRecord(Table table, Record record)
+        {
+            var sql = new StringBuilder();
+            sql.Append($"INSERT INTO {NormaliseNameForQuery(table.Name)} (");
+            sql.Append(string.Join(",", table.Columns.Select(col => NormaliseNameForQuery(col.InsertName ?? col.Name))));
+            sql.Append(") VALUES (");
+            sql.Append(ResolveColumns(table, record));
+            sql.Append(")");
+
+            //now run the query..
+            using (var connection = OpenConnection())
+            {
+                using (var command = new SqlCommand(sql.ToString(), connection))
+                {
+                    command.CommandType = System.Data.CommandType.Text;
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        /// <summary>
+        /// This method resolves all the column values into their correct format for insertion
+        /// into the table
+        /// </summary>
+        private string ResolveColumns(Table table, Record record)
+        {
+            var result = new StringBuilder();
+            for(int i = 0; i < table.Columns.Count; i++)
+            {
+                if (i > 0) result.Append(",");
+
+                result.Append(ResolveColumn(table.Columns[i], record.Fields[i]));
+            }
+            return result.ToString();
+        }
+
+        /// <summary>
+        /// This method resolves a single column vaue into its correct format for insertion
+        /// </summary>
+        /// <returns></returns>
+        private string ResolveColumn(Column column, object value)
+        {
+            var resolvedValue = value;
+            if(string.IsNullOrWhiteSpace(column.ForeignTable) == false)
+            {
+                //this vaue is joined on another table
+                //TODO 
+                resolvedValue = ResolveJoinedValue(column, value);
+            }
+            return NormaliseValueForQuery(resolvedValue);
+        }
+
+        /// <summary>
+        /// This method just adds the sql protectors around the name to prevent keyword clashes
+        /// </summary>
+        /// <returns></returns>
+        private string NormaliseNameForQuery(string name)
+        {
+            return $"[{name}]";
+        }
+
+        /// <summary>
+        /// This method normalises the value into an insert string value. i.e If the value
+        /// is a string type then surround it with quotes otherwise just tostring it
+        /// </summary>
+        private string NormaliseValueForQuery(object value)
+        {
+            if(value.GetType() == typeof(string))
+                return $"'{value}'";
+            if (value.GetType() == typeof(DateTime))
+                return $"'{((DateTime)value).ToString("MM/dd/yyyy HH:mm:ss")}'";
+
+            return value.ToString();
+        }
+
+        /// <summary>
+        /// Method resolves a value that is joined on a other table
+        /// </summary>
+        private object ResolveJoinedValue(Column column, object value)
+        {
+            var sql = string.Format("SELECT {0} FROM {1} WHERE {2} = {3}",
+                NormaliseNameForQuery(column.ForeignKeyName),
+                NormaliseNameForQuery(column.ForeignTable),
+                NormaliseNameForQuery(column.Name),
+                NormaliseValueForQuery(value));
+
+            using (var connection = OpenConnection())
+            {
+                using (var command = new SqlCommand(sql, connection))
+                {
+                    command.CommandType = System.Data.CommandType.Text;
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return reader[column.ForeignKeyName];
+                        }
+                    }
+                }
+            }
+            throw new ArgumentException($"Unable to resolve value {value} on table {column.ForeignTable}");
         }
 
         /// <summary>
         /// Displays the contents of a record.
         /// </summary>
-        private void DisplayRecord(Record record)
+        private void DisplayRecord(Table table, Record record)
         {
-            foreach(var field in record.Fields)
+            for(int i = 0 ; i < table.Columns.Count; i++)
             {
-                Console.WriteLine($"Name: {field.Name}. Value: {field.Value}");
+                Console.WriteLine($"{table.Columns[i].Name} : {record.Fields[i]}");
             }
         }
 

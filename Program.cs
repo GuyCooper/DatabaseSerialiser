@@ -11,13 +11,42 @@ namespace DatabaseSerialiser
     {
         static void Main(string[] args)
         {
-            //deserailise Config.json to create a list of Tables
-            Console.WriteLine("Starting Databaseserialiser...");
-            var configuration = Configuration.LoadConfiguration("Config.json");
-            var database = new SQLServerDatabase(configuration.Datasource);
-            //SerialiseTables(configuration.Tables, database);
-            DeserialiseTables(configuration.Tables, database);
-            Console.WriteLine("serialisation complete");
+            try
+            {
+                if(args.Length == 0)
+                {
+                    Console.WriteLine("usage: DatabaseSerialiser S/D");
+                    Console.WriteLine("S : Serialise Database");
+                    Console.WriteLine("D : DeSerialise Database");
+                    return;
+                }
+
+                var action = args[0].ToUpper();
+
+                //deserailise Config.json to create a list of Tables
+                Console.WriteLine($"Starting DatabaSeserialiser with action {action}");
+                var configuration = Configuration.LoadConfiguration("Config.json");
+                var database = new SQLServerDatabase(configuration.Datasource);
+                if(action == "S")
+                {
+                    SerialiseTables(configuration.Tables, database);
+                    Console.WriteLine("serialisation complete");
+                }
+                else if(action == "D")
+                {
+                    DeserialiseTables(configuration.Tables, database);
+                    Console.WriteLine("Deserialisation complete");
+                }
+                else
+                {
+                    Console.WriteLine($"Invalid action {action}");
+                }
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         /// <summary>

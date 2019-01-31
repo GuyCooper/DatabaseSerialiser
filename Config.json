@@ -1,5 +1,5 @@
 ﻿{
-  "Datasource" :  "Data Source=DESKTOP-JJ9QOJA\\SQLEXPRESS;Initial Catalog=InvestmentBuilderTest2;Integrated Security=True",
+  "Datasource": "Data Source=DESKTOP-JJ9QOJA\\SQLEXPRESS;Initial Catalog=InvestmentBuilderTest3;Integrated Security=True",
   "Tables": [
     {
       "Name": "Accounts",
@@ -16,7 +16,10 @@
           "Name": "Currency"
         },
         {
-          "Name": "Type"
+          "Name": "Type",
+          "InsertName": "Type_Id",
+          "ForeignTable": "AccountTypes",
+          "ForeignKeyName": "Type_Id"
         },
         {
           "Name": "Enabled"
@@ -36,6 +39,47 @@
         },
         {
           "Name": "Description"
+        }
+      ]
+    },
+    {
+      "Name": "Administrators",
+      "Query": "select [Name] from [Administrators]",
+      "Filename": "administrators.ser",
+      "Columns": [
+        {
+          "Name": "Name"
+        }
+      ]
+    },
+    {
+      "Name": "CashAccount",
+      "Query": "SELECT CA.[valuation_date], CA.[transaction_date], TT.[type], CA.[parameter], CA.[amount], A.[Name] FROM [CashAccount] CA INNER JOIN [TransactionType] TT ON CA.[type_id] = TT.[type_id] INNER JOIN [Accounts] A ON CA.[account_id] = A.[Account_Id]",
+      "Filename": "cashaccount.ser",
+      "Columns": [
+        {
+          "Name": "valuation_date"
+        },
+        {
+          "Name": "transaction_date"
+        },
+        {
+          "Name": "type",
+          "InsertName": "type_id",
+          "ForeignTable": "TransactionType",
+          "ForeignKeyName": "type_id"
+        },
+        {
+          "Name": "parameter"
+        },
+        {
+          "Name": "amount"
+        },
+        {
+          "Name": "name",
+          "InsertName": "account_id",
+          "ForeignTable": "Accounts",
+          "ForeignKeyName": "Account_Id"
         }
       ]
     }
