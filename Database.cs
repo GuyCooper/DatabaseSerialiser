@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -49,7 +50,8 @@ namespace DatabaseSerialiser
                         while (reader.Read())
                         {
                             var record = new Record();
-                            foreach(var column in table.Columns)
+                            var allColumns = table.Columns.SelectMany(subCol => subCol.Columns);
+                            foreach(var column in allColumns)
                             {
                                 record.Fields.Add(reader[column.Name]);
                             }
@@ -107,13 +109,52 @@ namespace DatabaseSerialiser
         private string ResolveColumns(Table table, Record record)
         {
             var result = new StringBuilder();
-            for(int i = 0; i < table.Columns.Count; i++)
+            int i = 0;
+            while(i < table.Columns.Count)
             {
                 if (i > 0) result.Append(",");
 
-                result.Append(ResolveColumn(table.Columns[i], record.Fields[i]));
-            }
+                if(table.Columns[i].Columns != null)
+                {
+                    var subValues = new List<object>();
+                    var parentColumn = table.Columns[i];
+                    foreach (var subColumn in parentColumn.Columns)
+                    {
+                        subValues.Add(record.Fields[i++]);
+                    }
+                    result.Append(ResolveMultipleColumns(parentColumn, subValues));
+                }
+                else
+                {
+                    result.Append(ResolveColumn(table.Columns[i], record.Fields[i]));
+                    i++;
+                }
+            }            
             return result.ToString();
+        }
+
+        /// <summary>
+        /// This methods resolves a multiple column value list. This is where the value is joined on multiple tables
+        /// </summary>
+        private object ResolveMultipleColumns(Column parentColumn, List<object> values)
+        {
+            var sql = new StringBuilder();
+            sql.Append(string.Format("SELECT {0} FROM {1} WHERE ",
+                NormaliseNameForQuery(parentColumn.ForeignKeyName),
+                NormaliseNameForQuery(parentColumn.ForeignTable)));
+
+            var subFilters = new List<string>();
+            for (var i = 0; i < parentColumn.Columns.Count; i++)
+            {
+                var column = parentColumn.Columns[i];
+                subFilters.Add(string.Format("{0} = {1}",
+                        NormaliseNameForQuery(column.InsertName),
+                        ResolveJoinedValue(column, values[i])));
+            }
+
+            sql.Append(string.Join(" AND ", subFilters));
+
+            return RetrieveData(sql.ToString(), parentColumn.ForeignKeyName);
         }
 
         /// <summary>
@@ -147,6 +188,9 @@ namespace DatabaseSerialiser
         /// </summary>
         private string NormaliseValueForQuery(object value)
         {
+            if (value == null)
+                return "null";
+
             if(value.GetType() == typeof(string))
                 return $"'{value}'";
             if (value.GetType() == typeof(DateTime))
@@ -163,9 +207,17 @@ namespace DatabaseSerialiser
             var sql = string.Format("SELECT {0} FROM {1} WHERE {2} = {3}",
                 NormaliseNameForQuery(column.ForeignKeyName),
                 NormaliseNameForQuery(column.ForeignTable),
-                NormaliseNameForQuery(column.Name),
+                NormaliseNameForQuery(column.ForeignTableColumnName ?? column.Name),
                 NormaliseValueForQuery(value));
 
+            return RetrieveData(sql, column.ForeignKeyName);
+        }
+
+        /// <summary>
+        /// Helper method for retrieving a single record from the database from the given query string
+        /// </summary>
+        private object RetrieveData(string sql, string columnName)
+        {
             using (var connection = OpenConnection())
             {
                 using (var command = new SqlCommand(sql, connection))
@@ -175,12 +227,12 @@ namespace DatabaseSerialiser
                     {
                         if (reader.Read())
                         {
-                            return reader[column.ForeignKeyName];
+                            return reader[columnName];
                         }
                     }
                 }
             }
-            throw new ArgumentException($"Unable to resolve value {value} on table {column.ForeignTable}");
+            throw new ArgumentException($"Query failed to return any results: {sql}");
         }
 
         /// <summary>

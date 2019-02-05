@@ -129,8 +129,18 @@ namespace DatabaseSerialiser
         public string ForeignTable { get; set; }
 
         /// <summary>
+        /// ForeginTable Column Name if it is different to name
+        /// </summary>
+        public string ForeignTableColumnName { get; set; }
+
+        /// <summary>
         /// Foreign key name if column joined on another table
         /// </summary>
         public string ForeignKeyName { get; set; }
+
+        /// <summary>
+        /// Sub columns that make up this column. 
+        /// </summary>
+        public List<Column> Columns { get; set; }
     }
 }
