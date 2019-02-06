@@ -1,9 +1,10 @@
 ﻿{
+  "Action":  "S",
   "Datasource": "Data Source=DESKTOP-JJ9QOJA\\SQLEXPRESS;Initial Catalog=InvestmentBuilderTest3;Integrated Security=True",
   "Tables": [
     {
       "Name": "Accounts",
-      "Query": "select A.Name, A.[Description], A.Currency, AT.[Type], A.[Enabled], A.[Broker] from Accounts A inner join AccountTypes AT on A.[Type_Id] = AT.[Type_Id]",
+      "Query": "select A.[Name], A.[Description], A.[Currency], AT.[Type], A.[Enabled], A.[Broker] from Accounts A inner join AccountTypes AT on A.[Type_Id] = AT.[Type_Id]",
       "Filename": "accounts.ser",
       "Columns": [
         {
@@ -31,7 +32,7 @@
     },
     {
       "Name": "Users",
-      "Query": "select [UserName], [Description] from Users",
+      "Query": "select [UserName], [Description] from [Users]",
       "Filename": "users.ser",
       "Columns": [
         {
@@ -285,7 +286,7 @@
     {
       "Name": "Redemptions",
       "Query": "SELECT U.[UserName],A.[Name] AS AccountName,R.[transaction_date],R.[amount],R.[units],R.[status] FROM Redemptions R INNER JOIN [Members] M ON R.[member_id] = M.[Member_Id] INNER JOIN [Users] U ON M.[UserId] = U.[UserId] INNER JOIN [Accounts] A ON M.[account_id] = A.[Account_Id]",
-      "Filename": "memberscapitalaccount.ser",
+      "Filename": "redemptions.ser",
       "Columns": [
         {
           "Name": "Member_Id",
@@ -325,7 +326,7 @@
     {
       "Name": "HistoricalData",
       "Query": "SELECT V.[Valuation_Date],V.[Unit_Price],A.[Name] AS AccountName FROM [Valuations] V INNER JOIN [Accounts] A ON V.[account_id] = A.[Account_Id]",
-      "Filename": "valuations.ser",
+      "Filename": "historicaldata.ser",
       "Columns": [
         {
           "Name": "Valuation_Date"

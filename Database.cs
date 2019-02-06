@@ -27,6 +27,8 @@ namespace DatabaseSerialiser
     /// </summary>
     class SQLServerDatabase : IDatabase
     {
+        #region Public Methods
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -50,10 +52,15 @@ namespace DatabaseSerialiser
                         while (reader.Read())
                         {
                             var record = new Record();
-                            var allColumns = table.Columns.SelectMany(subCol => subCol.Columns);
+                            var allColumns = new List<string>();
+                            foreach(var column in  table.Columns)
+                            {
+                                getAllColumns(column, allColumns);
+                            }
+
                             foreach(var column in allColumns)
                             {
-                                record.Fields.Add(reader[column.Name]);
+                                record.Fields.Add(reader[column]);
                             }
 
                             //serialise the record object into the serialiser
@@ -78,6 +85,10 @@ namespace DatabaseSerialiser
                 record = serialiser.DeserialiseRecord();
             }
         }
+
+        #endregion
+
+        #region Private Methods
 
         /// <summary>
         /// Adds a record to the database
@@ -109,8 +120,8 @@ namespace DatabaseSerialiser
         private string ResolveColumns(Table table, Record record)
         {
             var result = new StringBuilder();
-            int i = 0;
-            while(i < table.Columns.Count)
+            int fieldIndex = 0;
+            for(int i = 0; i < table.Columns.Count; i++)
             {
                 if (i > 0) result.Append(",");
 
@@ -120,14 +131,13 @@ namespace DatabaseSerialiser
                     var parentColumn = table.Columns[i];
                     foreach (var subColumn in parentColumn.Columns)
                     {
-                        subValues.Add(record.Fields[i++]);
+                        subValues.Add(record.Fields[fieldIndex++]);
                     }
                     result.Append(ResolveMultipleColumns(parentColumn, subValues));
                 }
                 else
                 {
-                    result.Append(ResolveColumn(table.Columns[i], record.Fields[i]));
-                    i++;
+                    result.Append(ResolveColumn(table.Columns[i], record.Fields[fieldIndex++]));
                 }
             }            
             return result.ToString();
@@ -265,6 +275,30 @@ namespace DatabaseSerialiser
             }
         }
 
+        /// <summary>
+        /// Helper method to extract all the column names in the configuration
+        /// </summary>
+        private void getAllColumns(Column column, List<string> allcolumns)
+        {
+            if (column.Columns != null)
+            {
+                foreach (var subCol in column.Columns)
+                {
+                    getAllColumns(subCol, allcolumns);
+                }
+            }
+            else
+            {
+                allcolumns.Add(column.Name);
+            }
+        }
+
+        #endregion
+
+        #region Private Data
+
         private readonly string m_connectionStr;
+
+        #endregion
     }
 }

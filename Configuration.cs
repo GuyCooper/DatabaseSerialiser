@@ -10,6 +10,10 @@ namespace DatabaseSerialiser
     public class Configuration
     {
         /// <summary>
+        /// Type Of Serialisation. S = Serialise. D = deserialise
+        /// </summary>
+        public string Action { get; set; }
+        /// <summary>
         /// name of database.
         /// </summary>
         public string Datasource { get; set; }
