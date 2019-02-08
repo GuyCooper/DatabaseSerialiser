@@ -17,6 +17,12 @@ namespace DatabaseSerialiser
         /// name of database.
         /// </summary>
         public string Datasource { get; set; }
+
+        /// <summary>
+        /// Location of folder to store data files.
+        /// </summary>
+        public string DataFolder { get; set; }
+
         /// <summary>
         /// Definition of tables required for serialising / deserialising.
         /// </summary>

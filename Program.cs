@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace DatabaseSerialiser
 {
@@ -19,12 +20,12 @@ namespace DatabaseSerialiser
                 var database = new SQLServerDatabase(configuration.Datasource);
                 if(configuration.Action == "S")
                 {
-                    SerialiseTables(configuration.Tables, database);
+                    SerialiseTables(configuration.Tables, database, configuration.DataFolder);
                     Console.WriteLine("serialisation complete");
                 }
                 else if(configuration.Action == "D")
                 {
-                    DeserialiseTables(configuration.Tables, database);
+                    DeserialiseTables(configuration.Tables, database, configuration.DataFolder);
                     Console.WriteLine("Deserialisation complete");
                 }
                 else
@@ -42,21 +43,21 @@ namespace DatabaseSerialiser
         /// <summary>
         /// Serialise the list of configured tables
         /// </summary>
-        static void SerialiseTables(List<Table> tables, IDatabase database)
+        static void SerialiseTables(List<Table> tables, IDatabase database, string outputFolder)
         {
             foreach(var table in tables)
             {
-                SerialiseTable(table, database);
+                SerialiseTable(table, database, outputFolder);
             }
         }
 
         /// <summary>
         /// Serialise a single table
         /// </summary>
-        static void SerialiseTable(Table table, IDatabase database)
+        static void SerialiseTable(Table table, IDatabase database, string outputFolder)
         {
             Console.WriteLine($"serialising table {table.Name} to file {table.Filename}");
-            using (var serialiser = new RecordSerialiser(table.Filename))
+            using (var serialiser = new RecordSerialiser(Path.Combine(outputFolder, table.Filename)))
             {
                 database.SerialiseTable(table, serialiser);
             }
@@ -65,21 +66,21 @@ namespace DatabaseSerialiser
         /// <summary>
         /// Deserialise the list of configured tables
         /// </summary>
-        static void DeserialiseTables(List<Table> tables, IDatabase database)
+        static void DeserialiseTables(List<Table> tables, IDatabase database, string inputFolder)
         {
             foreach(var table in tables)
             {
-                DeSerialiseTable(table, database);
+                DeSerialiseTable(table, database, inputFolder);
             }           
         }
 
         /// <summary>
         /// Deserialise a sinbgle table.
         /// </summary>
-        static void DeSerialiseTable(Table table, IDatabase database)
+        static void DeSerialiseTable(Table table, IDatabase database, string inputFolder)
         {
             Console.WriteLine($"deserialising table {table.Name} from file {table.Filename}");
-            using (var deserialiser = new RecordDeSerialiser(table.Filename))
+            using (var deserialiser = new RecordDeSerialiser(Path.Combine(inputFolder, table.Filename))) 
             {
                 database.DeSerialiseTable(table, deserialiser);
             }

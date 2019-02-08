@@ -1,6 +1,7 @@
 ﻿{
-  "Action":  "S",
+  "Action":  "D",
   "Datasource": "Data Source=DESKTOP-JJ9QOJA\\SQLEXPRESS;Initial Catalog=InvestmentBuilderTest3;Integrated Security=True",
+  "DataFolder" :  "C:\\Data\\SQLServer\\tables",
   "Tables": [
     {
       "Name": "Accounts",
@@ -325,21 +326,17 @@
     },
     {
       "Name": "HistoricalData",
-      "Query": "SELECT V.[Valuation_Date],V.[Unit_Price],A.[Name] AS AccountName FROM [Valuations] V INNER JOIN [Accounts] A ON V.[account_id] = A.[Account_Id]",
+      "Query": "SELECT [Name], [Symbol], [Data] FROM historicaldata",
       "Filename": "historicaldata.ser",
       "Columns": [
         {
-          "Name": "Valuation_Date"
+          "Name": "Name"
         },
         {
-          "Name": "Unit_Price"
+          "Name": "Symbol"
         },
         {
-          "Name": "AccountName",
-          "InsertName": "account_id",
-          "ForeignTable": "Accounts",
-          "ForeignKeyName": "Account_Id",
-          "ForeignTableColumnName": "Name"
+          "Name": "Data"
         }
       ]
     }
