@@ -1,7 +1,7 @@
 ﻿{
-  "Action":  "D",
-  "Datasource": "Data Source=DESKTOP-JJ9QOJA\\SQLEXPRESS;Initial Catalog=InvestmentBuilderTest3;Integrated Security=True",
-  "DataFolder" :  "C:\\Data\\SQLServer\\tables",
+  "Action": "S",
+  "Datasource": "Data Source=DESKTOP-JJ9QOJA\\SQLEXPRESS;Initial Catalog=InvestmentBuilderTest2;Integrated Security=True",
+  "DataFolder": "C:\\Users\\guy\\OneDrive\\InvestmentClub\\productionDB\\tables",
   "Tables": [
     {
       "Name": "Accounts",

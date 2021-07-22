@@ -204,8 +204,15 @@ namespace DatabaseSerialiser
             if(value.GetType() == typeof(string))
                 return $"'{value}'";
             if (value.GetType() == typeof(DateTime))
-                return $"'{((DateTime)value).ToUniversalTime().ToString("MM/dd/yyyy HH:mm:ss")}'";
-
+            {
+                var dtValue = (DateTime)value;
+                var offset = new TimeSpan(1, 0, 0);
+                if(dtValue.TimeOfDay == offset)
+                {
+                    dtValue = dtValue.Date;
+                }
+                return $"'{dtValue.ToString("MM/dd/yyyy HH:mm:ss")}'";
+            }
             return value.ToString();
         }
 
