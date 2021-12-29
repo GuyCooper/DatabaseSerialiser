@@ -103,6 +103,11 @@ namespace DatabaseSerialiser
         public string Filename { get; set; }
 
         /// <summary>
+        /// Identifier columns for table
+        /// </summary>
+        public List<string> IdentifierFields { get; set; }
+
+        /// <summary>
         /// Table columns definition.
         /// </summary>
         public List<Column> Columns { get; set; }

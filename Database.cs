@@ -80,8 +80,16 @@ namespace DatabaseSerialiser
             Record record = serialiser.DeserialiseRecord();
             while(record != null)
             {
+                var isDuplicate = RecordAlreadyExistsInTable(table, record);
+                if (isDuplicate)
+                {
+                    Console.WriteLine("Duplicate record found:");
+                }
                 DisplayRecord(table, record);
-                AddRecord(table, record);
+                if(!isDuplicate)
+                {
+                    AddRecord(table, record);
+                }
                 record = serialiser.DeserialiseRecord();
             }
         }
@@ -89,6 +97,57 @@ namespace DatabaseSerialiser
         #endregion
 
         #region Private Methods
+
+        /// <summary>
+        /// Returns true if the record already exists in the table
+        /// </summary>
+        /// <returns></returns>
+        private bool RecordAlreadyExistsInTable(Table table, Record record)
+        {
+            if(table.IdentifierFields != null && table.IdentifierFields.Any())
+            {
+                var sql = new StringBuilder();
+                sql.AppendLine("SELECT COUNT(*) AS RECORDCOUNT");
+                sql.AppendLine($"FROM {NormaliseNameForQuery(table.Name)}");
+                sql.AppendLine("WHERE");
+                sql.AppendLine(ResolveIdentifierFilterSQL(table, record, table.IdentifierFields.First()));
+                foreach(var identifierField in table.IdentifierFields.Skip(1))
+                {
+                    sql.AppendLine("AND");
+                    sql.AppendLine(ResolveIdentifierFilterSQL(table, record, identifierField));
+                }
+
+                var count = (int)RetrieveData(sql.ToString(), "RECORDCOUNT");
+
+                return count > 0;
+
+            }
+
+            return false;
+        }
+
+        private string ResolveIdentifierFilterSQL(Table table, Record record, string identifierField)
+        {
+            string result = null;
+            var identiferColumn = table.Columns.SingleOrDefault(c => c.Name == identifierField);
+            if (identiferColumn == null)
+            {
+                throw new ArgumentException($"invalid column name for identifier field {identifierField}");
+            }
+            else
+            {
+                var fieldIndex = table.Columns.IndexOf(identiferColumn);
+                if (!string.IsNullOrEmpty(identiferColumn.ForeignKeyName))
+                {
+                    result = $"{identiferColumn.ForeignKeyName} = {ResolveColumn(identiferColumn, record.Fields[fieldIndex])}";
+                }
+                else
+                {
+                    result = $"{identiferColumn.Name} = {ResolveColumn(identiferColumn, record.Fields[fieldIndex])}";
+                }
+            }
+            return result;
+        }
 
         /// <summary>
         /// Adds a record to the database

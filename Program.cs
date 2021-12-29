@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.CommandLineUtils;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -12,32 +13,53 @@ namespace DatabaseSerialiser
     {
         static void Main(string[] args)
         {
-            try
+            string helpTemplate = "-h | --help";
+            string serialiseTemplate = "-s | --serialise";
+            string deserialiseTemplate = "-d | --deserialise";
+            string configFileTemplate = "-c | --configfile";
+
+            var application = new CommandLineApplication();
+
+            application.HelpOption(helpTemplate);
+            var serialiseOption = application.Option(serialiseTemplate, "serialise mode", CommandOptionType.NoValue);
+            var deserailiseOption = application.Option(deserialiseTemplate, "deserialise", CommandOptionType.NoValue);
+            var configFileOption = application.Option(configFileTemplate, "Configuration file (optional)", CommandOptionType.SingleValue);
+
+            application.OnExecute(() =>
             {
-                //deserailise Config.json to create a list of Tables
-                var configuration = Configuration.LoadConfiguration("Config.json");
+                string configurationFile = configFileOption.HasValue() ? configFileOption.Value() : "Config.json";
+                var configuration = Configuration.LoadConfiguration(configurationFile);
                 Console.WriteLine($"Starting DatabaSeserialiser with action {configuration.Action}");
+                Console.WriteLine($"Using database {configuration.Datasource}");
                 var database = new SQLServerDatabase(configuration.Datasource);
-                if(configuration.Action == "S")
+                if (serialiseOption.HasValue())
                 {
                     SerialiseTables(configuration.Tables, database, configuration.DataFolder);
-                    Console.WriteLine("serialisation complete");
+                    Console.WriteLine("Serialisation complete");
                 }
-                else if(configuration.Action == "D")
+                else if (deserailiseOption.HasValue())
                 {
                     DeserialiseTables(configuration.Tables, database, configuration.DataFolder);
                     Console.WriteLine("Deserialisation complete");
                 }
                 else
                 {
-                    Console.WriteLine($"Invalid action {configuration.Action}");
+                    Console.WriteLine("Must specify an action (-s/-d)");
+                    return 1;
                 }
 
+                return 0;
+            });
+
+            try
+            {
+                application.Execute(args);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+
         }
 
         /// <summary>
