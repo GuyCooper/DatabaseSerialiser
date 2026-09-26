@@ -1,14 +1,14 @@
 # Migration Progress
 
-**Progress**: 2/9 tasks complete <progress value="22" max="100"></progress> 22%
+**Progress**: 3/9 tasks complete <progress value="33" max="100"></progress> 33%
 **Status**: In Progress - Task 01-convert-to-sdk
 
 ## Tasks
 
-- 🔄 01-convert-to-sdk: Convert DatabaseSerialiser.csproj to SDK-style ([Content](tasks/01-convert-to-sdk/task.md))
+- ✅ 01-convert-to-sdk: Convert DatabaseSerialiser.csproj to SDK-style ([Content](tasks/01-convert-to-sdk/task.md), [Progress](tasks/01-convert-to-sdk/progress-details.md))
   - ✅ 01.01-analyze-project: Analyze project and dependencies before conversion ([Content](tasks/01.01-analyze-project/task.md), [Progress](tasks/01.01-analyze-project/progress-details.md))
   - ✅ 01.02-convert-project-file: Convert project file to SDK-style and migrate package references ([Content](tasks/01.02-convert-project-file/task.md), [Progress](tasks/01.02-convert-project-file/progress-details.md))
-  - 🔲 01.03-validate-and-commit: Restore, build and validate project after conversion, then commit
+  - ✅ 01.03-validate-and-commit: Restore, build and validate project after conversion, then commit ([Content](tasks/01.03-validate-and-commit/task.md), [Progress](tasks/01.03-validate-and-commit/progress-details.md))
 - 🔲 02-update-tfms-and-project-file: Update project target framework(s) to net10.0 ([Content](tasks/02-update-tfms-and-project-file/task.md))
 - 🔲 03-update-nuget-packages: Upgrade NuGet packages to net10-compatible versions ([Content](tasks/03-update-nuget-packages/task.md))
 - 🔲 04-fix-binding-redirects: Remove or correct binding redirects and assembly binding policies ([Content](tasks/04-fix-binding-redirects/task.md))
