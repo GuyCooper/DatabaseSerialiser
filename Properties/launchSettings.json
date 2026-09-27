@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DatabaseSerialiser": {
+      "commandName": "Project",
+      "commandLineArgs": "-s"
+    }
+  }
+}

@@ -1,6 +1,6 @@
 ﻿{
-  "Datasource": "Data Source=LAPTOP-D6H2KOAE\\SQLEXPRESS01;Initial Catalog=InvestmentBuilderTest2;Integrated Security=True",
-  "DataFolder": "C:\\Users\\guy\\OneDriveNew\\OneDrive\\\\InvestmentClub\\\\productionDB\\\\tables",
+  "Datasource": "Data Source=LAPTOP-D6H2KOAE\\SQLEXPRESS01;Initial Catalog=InvestmentBuilderTest2;Integrated Security=True;Encrypt=False",
+  "DataFolder": "C:\\Users\\guy\\OneDriveNew\\OneDrive\\InvestmentClub\\productionDB\\tables",
   "Tables": [
     {
       "Name": "Accounts",

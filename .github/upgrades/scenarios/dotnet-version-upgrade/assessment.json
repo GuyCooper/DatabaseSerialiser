@@ -1,0 +1,983 @@
+{
+  "settings": {
+    "components": {
+      "code": true,
+      "binaries": false
+    },
+    "targetId": "net10.0",
+    "targetDisplayName": ".NETCoreApp,Version=v10.0"
+  },
+  "analysisStartTime": "2026-09-26T15:14:10.8744945Z",
+  "analysisEndTime": "2026-09-26T15:14:11.8397434Z",
+  "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2270980",
+  "stats": {
+    "summary": {
+      "projects": 1,
+      "issues": 8,
+      "incidents": 33,
+      "effort": 33
+    },
+    "charts": {
+      "severity": {
+        "Mandatory": 3,
+        "Optional": 1,
+        "Potential": 29,
+        "Information": 0
+      },
+      "category": {
+        "NuGet": 2,
+        "Project": 2,
+        "Api": 25,
+        "Binding": 4
+      }
+    }
+  },
+  "projects": [
+    {
+      "path": "DatabaseSerialiser.csproj",
+      "startingProject": true,
+      "issues": 8,
+      "storyPoints": 33,
+      "properties": {
+        "appName": "DatabaseSerialiser",
+        "projectKind": "ClassicDotNetApp",
+        "frameworks": [
+          "net472"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ],
+        "isSdkStyle": false,
+        "isTestProject": false,
+        "numberOfFiles": 6,
+        "numberOfCodeFiles": 6,
+        "linesTotal": 886,
+        "linesOfCode": 886,
+        "totalApiScanned": 661,
+        "minLinesOfCodeToChange": 25,
+        "maxLinesOfCodeToChange": 25
+      },
+      "ruleInstances": [
+        {
+          "incidentId": "b740a5e5-0969-4a66-9b88-0d855633e4e2",
+          "ruleId": "NuGet.0002",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Newtonsoft.Json, 13.0.1\n\nRecommendation:\n\nRemove Newtonsoft.Json, and replace with new package Newtonsoft.Json 13.0.4",
+              "protected": "Newtonsoft.Json, 13.0.1\n\nRecommendation:\n\nRemove Newtonsoft.Json, and replace with new package Newtonsoft.Json 13.0.4"
+            },
+            "kind": "File",
+            "path": "DatabaseSerialiser.csproj",
+            "snippet": "Newtonsoft.Json, 13.0.1\n\nRecommendation:\n\nRemove Newtonsoft.Json, and replace with new package Newtonsoft.Json 13.0.4",
+            "protectedSnippet": "Newtonsoft.Json, 13.0.1\n\nRecommendation:\n\nRemove Newtonsoft.Json, and replace with new package Newtonsoft.Json 13.0.4",
+            "label": "Newtonsoft.Json 13.0.1",
+            "properties": {
+              "PackageId": "Newtonsoft.Json",
+              "PackageVersion": "13.0.1",
+              "PackageNewVersion": "13.0.4",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "96538ab5-7aae-42c2-a7de-ac08dcd3c4b9",
+          "ruleId": "NuGet.0005",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.Extensions.CommandLineUtils, 1.1.1\n\nRecommendation:\n\nThis package has been deprecated as part of the .NET Package Deprecation effort. You can learn more about it from https://github.com/dotnet/announcements/issues/217\nRemove Microsoft.Extensions.CommandLineUtils, and replace with new package Microsoft.Extensions.CommandLineUtils, 1.1.1",
+              "protected": "Microsoft.Extensions.CommandLineUtils, 1.1.1\n\nRecommendation:\n\nThis package has been deprecated as part of the .NET Package Deprecation effort. You can learn more about it from https://github.com/dotnet/announcements/issues/217\nRemove Microsoft.Extensions.CommandLineUtils, and replace with new package Microsoft.Extensions.CommandLineUtils, 1.1.1"
+            },
+            "kind": "File",
+            "path": "DatabaseSerialiser.csproj",
+            "snippet": "Microsoft.Extensions.CommandLineUtils, 1.1.1\n\nRecommendation:\n\nThis package has been deprecated as part of the .NET Package Deprecation effort. You can learn more about it from https://github.com/dotnet/announcements/issues/217\nRemove Microsoft.Extensions.CommandLineUtils, and replace with new package Microsoft.Extensions.CommandLineUtils, 1.1.1",
+            "protectedSnippet": "Microsoft.Extensions.CommandLineUtils, 1.1.1\n\nRecommendation:\n\nThis package has been deprecated as part of the .NET Package Deprecation effort. You can learn more about it from https://github.com/dotnet/announcements/issues/217\nRemove Microsoft.Extensions.CommandLineUtils, and replace with new package Microsoft.Extensions.CommandLineUtils, 1.1.1",
+            "label": "Microsoft.Extensions.CommandLineUtils 1.1.1",
+            "properties": {
+              "PackageId": "Microsoft.Extensions.CommandLineUtils",
+              "PackageVersion": "1.1.1",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "d26818c5-d4cc-40f7-af5b-29be5d481b4d",
+          "ruleId": "Project.0001",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "DatabaseSerialiser.csproj"
+          }
+        },
+        {
+          "incidentId": "3e198bad-4b90-475b-a128-aea50839612c",
+          "ruleId": "Project.0002",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current target framework: .NETFramework,Version=v4.7.2\nRecommended target framework: net10.0",
+              "protected": "Current target framework: .NETFramework,Version=v4.7.2\nRecommended target framework: net10.0"
+            },
+            "kind": "File",
+            "path": "DatabaseSerialiser.csproj",
+            "snippet": "Current target framework: .NETFramework,Version=v4.7.2\nRecommended target framework: net10.0",
+            "protectedSnippet": "Current target framework: .NETFramework,Version=v4.7.2\nRecommended target framework: net10.0",
+            "properties": {
+              "CurrentTargetFramework": ".NETFramework,Version=v4.7.2",
+              "RecommendedTargetFramework": "net10.0"
+            }
+          }
+        },
+        {
+          "incidentId": "bc5c9bca-c56f-4ddf-8681-4edf35aeeba2",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "private SqlConnection OpenConnection()",
+              "protected": "T:System.Data.SqlClient.SqlConnection"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "private SqlConnection OpenConnection()",
+            "protectedSnippet": "T:System.Data.SqlClient.SqlConnection",
+            "label": "T:System.Data.SqlClient.SqlConnection",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 328,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "4e03543f-5bea-4ae5-bef3-337fbfd96792",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "connection.Open();",
+              "protected": "M:System.Data.SqlClient.SqlConnection.Open"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "connection.Open();",
+            "protectedSnippet": "M:System.Data.SqlClient.SqlConnection.Open",
+            "label": "M:System.Data.SqlClient.SqlConnection.Open",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 333,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "853769e1-856b-4faf-a9a3-31c7158c99f1",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var connection = new SqlConnection(m_connectionStr);",
+              "protected": "T:System.Data.SqlClient.SqlConnection"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "var connection = new SqlConnection(m_connectionStr);",
+            "protectedSnippet": "T:System.Data.SqlClient.SqlConnection",
+            "label": "T:System.Data.SqlClient.SqlConnection",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 332,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "3c8f2f73-1d8f-4c46-8c5a-539fc4d381c8",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var connection = new SqlConnection(m_connectionStr);",
+              "protected": "M:System.Data.SqlClient.SqlConnection.#ctor(System.String)"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "var connection = new SqlConnection(m_connectionStr);",
+            "protectedSnippet": "M:System.Data.SqlClient.SqlConnection.#ctor(System.String)",
+            "label": "M:System.Data.SqlClient.SqlConnection.#ctor(System.String)",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 332,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "fe8b4308-813a-4016-a2cc-86ca491c5f50",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return reader[columnName];",
+              "protected": "P:System.Data.SqlClient.SqlDataReader.Item(System.String)"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "return reader[columnName];",
+            "protectedSnippet": "P:System.Data.SqlClient.SqlDataReader.Item(System.String)",
+            "label": "P:System.Data.SqlClient.SqlDataReader.Item(System.String)",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 305,
+            "column": 28
+          }
+        },
+        {
+          "incidentId": "41077d2a-7662-444a-8f7b-80dbbb8d5a74",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "if (reader.Read())\r\n                        {\r\n                            return reader[columnName];\r\n                        }",
+              "protected": "M:System.Data.SqlClient.SqlDataReader.Read"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "if (reader.Read())\r\n                        {\r\n                            return reader[columnName];\r\n                        }",
+            "protectedSnippet": "M:System.Data.SqlClient.SqlDataReader.Read",
+            "label": "M:System.Data.SqlClient.SqlDataReader.Read",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 303,
+            "column": 24
+          }
+        },
+        {
+          "incidentId": "49f7f08c-aee0-4bdf-a092-eead00dd3063",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using (SqlDataReader reader = command.ExecuteReader())\r\n                    {\r\n                        if (reader.Read())\r\n                        {\r\n                            return reader[columnName];\r\n                        }\r\n                    }",
+              "protected": "T:System.Data.SqlClient.SqlDataReader"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "using (SqlDataReader reader = command.ExecuteReader())\r\n                    {\r\n                        if (reader.Read())\r\n                        {\r\n                            return reader[columnName];\r\n                        }\r\n                    }",
+            "protectedSnippet": "T:System.Data.SqlClient.SqlDataReader",
+            "label": "T:System.Data.SqlClient.SqlDataReader",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 301,
+            "column": 20
+          }
+        },
+        {
+          "incidentId": "15912827-1fa6-4b52-bdb9-1b9538093491",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using (SqlDataReader reader = command.ExecuteReader())\r\n                    {\r\n                        if (reader.Read())\r\n                        {\r\n                            return reader[columnName];\r\n                        }\r\n                    }",
+              "protected": "M:System.Data.SqlClient.SqlCommand.ExecuteReader"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "using (SqlDataReader reader = command.ExecuteReader())\r\n                    {\r\n                        if (reader.Read())\r\n                        {\r\n                            return reader[columnName];\r\n                        }\r\n                    }",
+            "protectedSnippet": "M:System.Data.SqlClient.SqlCommand.ExecuteReader",
+            "label": "M:System.Data.SqlClient.SqlCommand.ExecuteReader",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 301,
+            "column": 20
+          }
+        },
+        {
+          "incidentId": "8fd1c90d-ec5d-435c-862d-04e835b4a593",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "command.CommandType = System.Data.CommandType.Text;",
+              "protected": "P:System.Data.SqlClient.SqlCommand.CommandType"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "command.CommandType = System.Data.CommandType.Text;",
+            "protectedSnippet": "P:System.Data.SqlClient.SqlCommand.CommandType",
+            "label": "P:System.Data.SqlClient.SqlCommand.CommandType",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 300,
+            "column": 20
+          }
+        },
+        {
+          "incidentId": "9c92c6c7-bb53-41dc-a40a-eb919cc424ac",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using (var command = new SqlCommand(sql, connection))\r\n                {\r\n                    command.CommandType = System.Data.CommandType.Text;\r\n                    using (SqlDataReader reader = command.ExecuteReader())\r\n                    {\r\n                        if (reader.Read())\r\n                        {\r\n                            return reader[columnName];\r\n                        }\r\n                    }\r\n                }",
+              "protected": "T:System.Data.SqlClient.SqlCommand"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "using (var command = new SqlCommand(sql, connection))\r\n                {\r\n                    command.CommandType = System.Data.CommandType.Text;\r\n                    using (SqlDataReader reader = command.ExecuteReader())\r\n                    {\r\n                        if (reader.Read())\r\n                        {\r\n                            return reader[columnName];\r\n                        }\r\n                    }\r\n                }",
+            "protectedSnippet": "T:System.Data.SqlClient.SqlCommand",
+            "label": "T:System.Data.SqlClient.SqlCommand",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 298,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "e8af161d-2f47-4f7f-88b9-f5fc1a45d7ec",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using (var command = new SqlCommand(sql, connection))\r\n                {\r\n                    command.CommandType = System.Data.CommandType.Text;\r\n                    using (SqlDataReader reader = command.ExecuteReader())\r\n                    {\r\n                        if (reader.Read())\r\n                        {\r\n                            return reader[columnName];\r\n                        }\r\n                    }\r\n                }",
+              "protected": "M:System.Data.SqlClient.SqlCommand.#ctor(System.String,System.Data.SqlClient.SqlConnection)"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "using (var command = new SqlCommand(sql, connection))\r\n                {\r\n                    command.CommandType = System.Data.CommandType.Text;\r\n                    using (SqlDataReader reader = command.ExecuteReader())\r\n                    {\r\n                        if (reader.Read())\r\n                        {\r\n                            return reader[columnName];\r\n                        }\r\n                    }\r\n                }",
+            "protectedSnippet": "M:System.Data.SqlClient.SqlCommand.#ctor(System.String,System.Data.SqlClient.SqlConnection)",
+            "label": "M:System.Data.SqlClient.SqlCommand.#ctor(System.String,System.Data.SqlClient.SqlConnection)",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 298,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "0ae392d5-cd6d-414f-80e6-8b2679470993",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using (var connection = OpenConnection())\r\n            {\r\n                using (var command = new SqlCommand(sql, connection))\r\n                {\r\n                    command.CommandType = System.Data.CommandType.Text;\r\n                    using (SqlDataReader reader = command.ExecuteReader())\r\n                    {\r\n                        if (reader.Read())\r\n                        {\r\n                            return reader[columnName];\r\n                        }\r\n                    }\r\n                }\r\n            }",
+              "protected": "T:System.Data.SqlClient.SqlConnection"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "using (var connection = OpenConnection())\r\n            {\r\n                using (var command = new SqlCommand(sql, connection))\r\n                {\r\n                    command.CommandType = System.Data.CommandType.Text;\r\n                    using (SqlDataReader reader = command.ExecuteReader())\r\n                    {\r\n                        if (reader.Read())\r\n                        {\r\n                            return reader[columnName];\r\n                        }\r\n                    }\r\n                }\r\n            }",
+            "protectedSnippet": "T:System.Data.SqlClient.SqlConnection",
+            "label": "T:System.Data.SqlClient.SqlConnection",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 296,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "900e5037-6c79-40ee-8d2f-9fbc2fba70fe",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "command.ExecuteNonQuery();",
+              "protected": "M:System.Data.SqlClient.SqlCommand.ExecuteNonQuery"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "command.ExecuteNonQuery();",
+            "protectedSnippet": "M:System.Data.SqlClient.SqlCommand.ExecuteNonQuery",
+            "label": "M:System.Data.SqlClient.SqlCommand.ExecuteNonQuery",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 169,
+            "column": 20
+          }
+        },
+        {
+          "incidentId": "9213cb6e-9a43-4972-9758-e181ff889bac",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "command.CommandType = System.Data.CommandType.Text;",
+              "protected": "P:System.Data.SqlClient.SqlCommand.CommandType"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "command.CommandType = System.Data.CommandType.Text;",
+            "protectedSnippet": "P:System.Data.SqlClient.SqlCommand.CommandType",
+            "label": "P:System.Data.SqlClient.SqlCommand.CommandType",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 168,
+            "column": 20
+          }
+        },
+        {
+          "incidentId": "c7d59ad5-dec9-4f02-87ac-88a57e38148e",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using (var command = new SqlCommand(sql.ToString(), connection))\r\n                {\r\n                    command.CommandType = System.Data.CommandType.Text;\r\n                    command.ExecuteNonQuery();\r\n                }",
+              "protected": "T:System.Data.SqlClient.SqlCommand"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "using (var command = new SqlCommand(sql.ToString(), connection))\r\n                {\r\n                    command.CommandType = System.Data.CommandType.Text;\r\n                    command.ExecuteNonQuery();\r\n                }",
+            "protectedSnippet": "T:System.Data.SqlClient.SqlCommand",
+            "label": "T:System.Data.SqlClient.SqlCommand",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 166,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "e75e9083-814c-4663-ac55-c1bfbb5b75b3",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using (var command = new SqlCommand(sql.ToString(), connection))\r\n                {\r\n                    command.CommandType = System.Data.CommandType.Text;\r\n                    command.ExecuteNonQuery();\r\n                }",
+              "protected": "M:System.Data.SqlClient.SqlCommand.#ctor(System.String,System.Data.SqlClient.SqlConnection)"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "using (var command = new SqlCommand(sql.ToString(), connection))\r\n                {\r\n                    command.CommandType = System.Data.CommandType.Text;\r\n                    command.ExecuteNonQuery();\r\n                }",
+            "protectedSnippet": "M:System.Data.SqlClient.SqlCommand.#ctor(System.String,System.Data.SqlClient.SqlConnection)",
+            "label": "M:System.Data.SqlClient.SqlCommand.#ctor(System.String,System.Data.SqlClient.SqlConnection)",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 166,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "66bbcb40-f566-4a5c-8267-ffc79550e0a6",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using (var connection = OpenConnection())\r\n            {\r\n                using (var command = new SqlCommand(sql.ToString(), connection))\r\n                {\r\n                    command.CommandType = System.Data.CommandType.Text;\r\n                    command.ExecuteNonQuery();\r\n                }\r\n            }",
+              "protected": "T:System.Data.SqlClient.SqlConnection"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "using (var connection = OpenConnection())\r\n            {\r\n                using (var command = new SqlCommand(sql.ToString(), connection))\r\n                {\r\n                    command.CommandType = System.Data.CommandType.Text;\r\n                    command.ExecuteNonQuery();\r\n                }\r\n            }",
+            "protectedSnippet": "T:System.Data.SqlClient.SqlConnection",
+            "label": "T:System.Data.SqlClient.SqlConnection",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 164,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "526ea88b-55c8-43be-adf0-21eaf07cf4fd",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "record.Fields.Add(reader[column]);",
+              "protected": "P:System.Data.SqlClient.SqlDataReader.Item(System.String)"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "record.Fields.Add(reader[column]);",
+            "protectedSnippet": "P:System.Data.SqlClient.SqlDataReader.Item(System.String)",
+            "label": "P:System.Data.SqlClient.SqlDataReader.Item(System.String)",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 62,
+            "column": 32
+          }
+        },
+        {
+          "incidentId": "98c67b83-1202-45e9-9a98-507d72dac7ec",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "while (reader.Read())\r\n                        {\r\n                            var record = new Record();\r\n                            var allColumns = new List\u003Cstring\u003E();\r\n                            foreach(var column in  table.Columns)\r\n                            {\r\n                                getAllColumns(column, allColumns);\r\n                            }\r\n\r\n                            foreach(var column in allColumns)\r\n                            {\r\n                                record.Fields.Add(reader[column]);\r\n                            }\r\n\r\n                            //serialise the record object into the serialiser\r\n                            serialiser.SerialiseRecord(record);\r\n                        }",
+              "protected": "M:System.Data.SqlClient.SqlDataReader.Read"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "while (reader.Read())\r\n                        {\r\n                            var record = new Record();\r\n                            var allColumns = new List\u003Cstring\u003E();\r\n                            foreach(var column in  table.Columns)\r\n                            {\r\n                                getAllColumns(column, allColumns);\r\n                            }\r\n\r\n                            foreach(var column in allColumns)\r\n                            {\r\n                                record.Fields.Add(reader[column]);\r\n                            }\r\n\r\n                            //serialise the record object into the serialiser\r\n                            serialiser.SerialiseRecord(record);\r\n                        }",
+            "protectedSnippet": "M:System.Data.SqlClient.SqlDataReader.Read",
+            "label": "M:System.Data.SqlClient.SqlDataReader.Read",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 51,
+            "column": 24
+          }
+        },
+        {
+          "incidentId": "a199f684-26dd-46e6-a84f-dad945cde0db",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using (SqlDataReader reader = command.ExecuteReader())\r\n                    {\r\n                        while (reader.Read())\r\n                        {\r\n                            var record = new Record();\r\n                            var allColumns = new List\u003Cstring\u003E();\r\n                            foreach(var column in  table.Columns)\r\n                            {\r\n                                getAllColumns(column, allColumns);\r\n                            }\r\n\r\n                            foreach(var column in allColumns)\r\n                            {\r\n                                record.Fields.Add(reader[column]);\r\n                            }\r\n\r\n                            //serialise the record object into the serialiser\r\n                            serialiser.SerialiseRecord(record);\r\n                        }\r\n                    }",
+              "protected": "T:System.Data.SqlClient.SqlDataReader"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "using (SqlDataReader reader = command.ExecuteReader())\r\n                    {\r\n                        while (reader.Read())\r\n                        {\r\n                            var record = new Record();\r\n                            var allColumns = new List\u003Cstring\u003E();\r\n                            foreach(var column in  table.Columns)\r\n                            {\r\n                                getAllColumns(column, allColumns);\r\n                            }\r\n\r\n                            foreach(var column in allColumns)\r\n                            {\r\n                                record.Fields.Add(reader[column]);\r\n                            }\r\n\r\n                            //serialise the record object into the serialiser\r\n                            serialiser.SerialiseRecord(record);\r\n                        }\r\n                    }",
+            "protectedSnippet": "T:System.Data.SqlClient.SqlDataReader",
+            "label": "T:System.Data.SqlClient.SqlDataReader",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 49,
+            "column": 20
+          }
+        },
+        {
+          "incidentId": "5c8079a2-c2ce-4ff3-a028-a254519937b0",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using (SqlDataReader reader = command.ExecuteReader())\r\n                    {\r\n                        while (reader.Read())\r\n                        {\r\n                            var record = new Record();\r\n                            var allColumns = new List\u003Cstring\u003E();\r\n                            foreach(var column in  table.Columns)\r\n                            {\r\n                                getAllColumns(column, allColumns);\r\n                            }\r\n\r\n                            foreach(var column in allColumns)\r\n                            {\r\n                                record.Fields.Add(reader[column]);\r\n                            }\r\n\r\n                            //serialise the record object into the serialiser\r\n                            serialiser.SerialiseRecord(record);\r\n                        }\r\n                    }",
+              "protected": "M:System.Data.SqlClient.SqlCommand.ExecuteReader"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "using (SqlDataReader reader = command.ExecuteReader())\r\n                    {\r\n                        while (reader.Read())\r\n                        {\r\n                            var record = new Record();\r\n                            var allColumns = new List\u003Cstring\u003E();\r\n                            foreach(var column in  table.Columns)\r\n                            {\r\n                                getAllColumns(column, allColumns);\r\n                            }\r\n\r\n                            foreach(var column in allColumns)\r\n                            {\r\n                                record.Fields.Add(reader[column]);\r\n                            }\r\n\r\n                            //serialise the record object into the serialiser\r\n                            serialiser.SerialiseRecord(record);\r\n                        }\r\n                    }",
+            "protectedSnippet": "M:System.Data.SqlClient.SqlCommand.ExecuteReader",
+            "label": "M:System.Data.SqlClient.SqlCommand.ExecuteReader",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 49,
+            "column": 20
+          }
+        },
+        {
+          "incidentId": "93e2bad8-c642-499b-8cbd-cbc81b2052c3",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "command.CommandType = System.Data.CommandType.Text;",
+              "protected": "P:System.Data.SqlClient.SqlCommand.CommandType"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "command.CommandType = System.Data.CommandType.Text;",
+            "protectedSnippet": "P:System.Data.SqlClient.SqlCommand.CommandType",
+            "label": "P:System.Data.SqlClient.SqlCommand.CommandType",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 48,
+            "column": 20
+          }
+        },
+        {
+          "incidentId": "adc92011-cc71-41f8-b361-3603e04c5e2b",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using (var command = new SqlCommand(table.Query, connection))\r\n                {\r\n                    command.CommandType = System.Data.CommandType.Text;\r\n                    using (SqlDataReader reader = command.ExecuteReader())\r\n                    {\r\n                        while (reader.Read())\r\n                        {\r\n                            var record = new Record();\r\n                            var allColumns = new List\u003Cstring\u003E();\r\n                            foreach(var column in  table.Columns)\r\n                            {\r\n                                getAllColumns(column, allColumns);\r\n                            }\r\n\r\n                            foreach(var column in allColumns)\r\n                            {\r\n                                record.Fields.Add(reader[column]);\r\n                            }\r\n\r\n                            //serialise the record object into the serialiser\r\n                            serialiser.SerialiseRecord(record);\r\n                        }\r\n                    }\r\n                }",
+              "protected": "T:System.Data.SqlClient.SqlCommand"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "using (var command = new SqlCommand(table.Query, connection))\r\n                {\r\n                    command.CommandType = System.Data.CommandType.Text;\r\n                    using (SqlDataReader reader = command.ExecuteReader())\r\n                    {\r\n                        while (reader.Read())\r\n                        {\r\n                            var record = new Record();\r\n                            var allColumns = new List\u003Cstring\u003E();\r\n                            foreach(var column in  table.Columns)\r\n                            {\r\n                                getAllColumns(column, allColumns);\r\n                            }\r\n\r\n                            foreach(var column in allColumns)\r\n                            {\r\n                                record.Fields.Add(reader[column]);\r\n                            }\r\n\r\n                            //serialise the record object into the serialiser\r\n                            serialiser.SerialiseRecord(record);\r\n                        }\r\n                    }\r\n                }",
+            "protectedSnippet": "T:System.Data.SqlClient.SqlCommand",
+            "label": "T:System.Data.SqlClient.SqlCommand",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 46,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "ec3c09f6-2e87-45cc-ba87-4d3dae41c6e7",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using (var command = new SqlCommand(table.Query, connection))\r\n                {\r\n                    command.CommandType = System.Data.CommandType.Text;\r\n                    using (SqlDataReader reader = command.ExecuteReader())\r\n                    {\r\n                        while (reader.Read())\r\n                        {\r\n                            var record = new Record();\r\n                            var allColumns = new List\u003Cstring\u003E();\r\n                            foreach(var column in  table.Columns)\r\n                            {\r\n                                getAllColumns(column, allColumns);\r\n                            }\r\n\r\n                            foreach(var column in allColumns)\r\n                            {\r\n                                record.Fields.Add(reader[column]);\r\n                            }\r\n\r\n                            //serialise the record object into the serialiser\r\n                            serialiser.SerialiseRecord(record);\r\n                        }\r\n                    }\r\n                }",
+              "protected": "M:System.Data.SqlClient.SqlCommand.#ctor(System.String,System.Data.SqlClient.SqlConnection)"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "using (var command = new SqlCommand(table.Query, connection))\r\n                {\r\n                    command.CommandType = System.Data.CommandType.Text;\r\n                    using (SqlDataReader reader = command.ExecuteReader())\r\n                    {\r\n                        while (reader.Read())\r\n                        {\r\n                            var record = new Record();\r\n                            var allColumns = new List\u003Cstring\u003E();\r\n                            foreach(var column in  table.Columns)\r\n                            {\r\n                                getAllColumns(column, allColumns);\r\n                            }\r\n\r\n                            foreach(var column in allColumns)\r\n                            {\r\n                                record.Fields.Add(reader[column]);\r\n                            }\r\n\r\n                            //serialise the record object into the serialiser\r\n                            serialiser.SerialiseRecord(record);\r\n                        }\r\n                    }\r\n                }",
+            "protectedSnippet": "M:System.Data.SqlClient.SqlCommand.#ctor(System.String,System.Data.SqlClient.SqlConnection)",
+            "label": "M:System.Data.SqlClient.SqlCommand.#ctor(System.String,System.Data.SqlClient.SqlConnection)",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 46,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "6a21be02-290f-48ed-bda8-066716aa07a6",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Data.SqlClient, 4.8.6. Add package reference to System.Data.SqlClient, 4.8.6",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "using (var connection = OpenConnection())\r\n            {\r\n                using (var command = new SqlCommand(table.Query, connection))\r\n                {\r\n                    command.CommandType = System.Data.CommandType.Text;\r\n                    using (SqlDataReader reader = command.ExecuteReader())\r\n                    {\r\n                        while (reader.Read())\r\n                        {\r\n                            var record = new Record();\r\n                            var allColumns = new List\u003Cstring\u003E();\r\n                            foreach(var column in  table.Columns)\r\n                            {\r\n                                getAllColumns(column, allColumns);\r\n                            }\r\n\r\n                            foreach(var column in allColumns)\r\n                            {\r\n                                record.Fields.Add(reader[column]);\r\n                            }\r\n\r\n                            //serialise the record object into the serialiser\r\n                            serialiser.SerialiseRecord(record);\r\n                        }\r\n                    }\r\n                }\r\n            }",
+              "protected": "T:System.Data.SqlClient.SqlConnection"
+            },
+            "kind": "File",
+            "path": "Database.cs",
+            "snippet": "using (var connection = OpenConnection())\r\n            {\r\n                using (var command = new SqlCommand(table.Query, connection))\r\n                {\r\n                    command.CommandType = System.Data.CommandType.Text;\r\n                    using (SqlDataReader reader = command.ExecuteReader())\r\n                    {\r\n                        while (reader.Read())\r\n                        {\r\n                            var record = new Record();\r\n                            var allColumns = new List\u003Cstring\u003E();\r\n                            foreach(var column in  table.Columns)\r\n                            {\r\n                                getAllColumns(column, allColumns);\r\n                            }\r\n\r\n                            foreach(var column in allColumns)\r\n                            {\r\n                                record.Fields.Add(reader[column]);\r\n                            }\r\n\r\n                            //serialise the record object into the serialiser\r\n                            serialiser.SerialiseRecord(record);\r\n                        }\r\n                    }\r\n                }\r\n            }",
+            "protectedSnippet": "T:System.Data.SqlClient.SqlConnection",
+            "label": "T:System.Data.SqlClient.SqlConnection",
+            "properties": {
+              "PackageId": "System.Data.SqlClient",
+              "PackageNewVersion": "4.8.6",
+              "CharCount": "13477"
+            },
+            "line": 44,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "46ce3aca-2885-4200-81d0-717615967a21",
+          "ruleId": "Binding.0005",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Manual redirects exist but none covers Microsoft.Extensions.CommandLineUtils (referenced v1.1.1.0, package v1.1.1)",
+              "protected": "Manual redirects exist but none covers Microsoft.Extensions.CommandLineUtils (referenced v1.1.1.0, package v1.1.1)"
+            },
+            "kind": "File",
+            "path": "App.config",
+            "snippet": "Manual redirects exist but none covers Microsoft.Extensions.CommandLineUtils (referenced v1.1.1.0, package v1.1.1)",
+            "protectedSnippet": "Manual redirects exist but none covers Microsoft.Extensions.CommandLineUtils (referenced v1.1.1.0, package v1.1.1)",
+            "properties": {
+              "AssemblyName": "Microsoft.Extensions.CommandLineUtils",
+              "AssemblyCurrentVersion": "1.1.1.0",
+              "AssemblyNewVersion": "1.1.1"
+            }
+          }
+        },
+        {
+          "incidentId": "2c0029ab-f637-4351-b550-7b64206df93e",
+          "ruleId": "Binding.0005",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Manual redirects exist but none covers Newtonsoft.Json.Bson (referenced v1.0.0.0, package v1.0.2)",
+              "protected": "Manual redirects exist but none covers Newtonsoft.Json.Bson (referenced v1.0.0.0, package v1.0.2)"
+            },
+            "kind": "File",
+            "path": "App.config",
+            "snippet": "Manual redirects exist but none covers Newtonsoft.Json.Bson (referenced v1.0.0.0, package v1.0.2)",
+            "protectedSnippet": "Manual redirects exist but none covers Newtonsoft.Json.Bson (referenced v1.0.0.0, package v1.0.2)",
+            "properties": {
+              "AssemblyName": "Newtonsoft.Json.Bson",
+              "AssemblyCurrentVersion": "1.0.0.0",
+              "AssemblyNewVersion": "1.0.2"
+            }
+          }
+        },
+        {
+          "incidentId": "5a99ea6c-0507-4272-99ed-01fcd3bede8f",
+          "ruleId": "Binding.0006",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Manual redirect for Newtonsoft.Json targets 13.0.0.0 but auto-generation would target 13.0.1 (MSB3836 conflict)",
+              "protected": "Manual redirect for Newtonsoft.Json targets 13.0.0.0 but auto-generation would target 13.0.1 (MSB3836 conflict)"
+            },
+            "kind": "File",
+            "path": "App.config",
+            "snippet": "Manual redirect for Newtonsoft.Json targets 13.0.0.0 but auto-generation would target 13.0.1 (MSB3836 conflict)",
+            "protectedSnippet": "Manual redirect for Newtonsoft.Json targets 13.0.0.0 but auto-generation would target 13.0.1 (MSB3836 conflict)",
+            "properties": {
+              "AssemblyName": "Newtonsoft.Json",
+              "AssemblyCurrentVersion": "13.0.0.0",
+              "AssemblyNewVersion": "13.0.1"
+            }
+          }
+        },
+        {
+          "incidentId": "f827922e-efb2-42a3-ae7b-7a0698a416f4",
+          "ruleId": "Binding.0007",
+          "projectPath": "DatabaseSerialiser.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Binding redirect for Newtonsoft.Json targets 13.0.0.0 but package provides 13.0.1",
+              "protected": "Binding redirect for Newtonsoft.Json targets 13.0.0.0 but package provides 13.0.1"
+            },
+            "kind": "File",
+            "path": "App.config",
+            "snippet": "Binding redirect for Newtonsoft.Json targets 13.0.0.0 but package provides 13.0.1",
+            "protectedSnippet": "Binding redirect for Newtonsoft.Json targets 13.0.0.0 but package provides 13.0.1",
+            "properties": {
+              "AssemblyName": "Newtonsoft.Json",
+              "AssemblyCurrentVersion": "13.0.0.0",
+              "AssemblyNewVersion": "13.0.1"
+            }
+          }
+        }
+      ],
+      "features": []
+    }
+  ],
+  "rules": {
+    "NuGet.0002": {
+      "id": "NuGet.0002",
+      "isFeature": false,
+      "description": "NuGet package upgrade is recommended for selected target framework.\n\nStandard .NET packages are recommended to have versions matching version of .NET that project targets.\n\nSome other packages also are known to work better for selected target frameworks.",
+      "label": "NuGet package upgrade is recommended",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262530",
+          "isCustom": false
+        }
+      ]
+    },
+    "NuGet.0005": {
+      "id": "NuGet.0005",
+      "isFeature": false,
+      "description": "NuGet package is deprecated.\n\nGo to its documentation and if there is a guidance for replacement of functionality provided by this package.",
+      "label": "NuGet package is deprecated",
+      "severity": "Optional",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262531",
+          "isCustom": false
+        }
+      ]
+    },
+    "Project.0001": {
+      "id": "Project.0001",
+      "isFeature": false,
+      "description": "Project file needs to be converted to SDK-style. Modern .NET framework projects require a change in the project file format and use SDK corresponding to project flavor and functionality.",
+      "label": "Project file needs to be converted to SDK-style",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    },
+    "Project.0002": {
+      "id": "Project.0002",
+      "isFeature": false,
+      "description": "Project\u0027s target framework(s) needs to be changed to the new target framework that you selected for this upgrade.\n\nDuring upgrade target framework will be adjusted to corresponding platform when applicable. In some cases project would result in multiple target frameworks after the upgrade if it was using features that now have their own platforms in modern .NET frameworks (windows, iOS, Android etc).",
+      "label": "Project\u0027s target framework(s) needs to be changed",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0002": {
+      "id": "Api.0002",
+      "isFeature": false,
+      "description": "API is source incompatible for selected .NET version: requires code changes to compile successfully when targeting a new version, such as removing obsolete APIs or changing method signatures.",
+      "label": "Source incompatible for selected .NET version",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Breaking changes in .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262679",
+          "isCustom": false
+        }
+      ]
+    },
+    "Binding.0005": {
+      "id": "Binding.0005",
+      "isFeature": false,
+      "description": "Manual binding redirects exist but are missing a redirect for a referenced assembly with a version mismatch. This can cause MissingMethodException or FileLoadException when the missing redirect allows the app to start but fails when a specific code path is hit.",
+      "label": "Missing binding redirect for referenced assembly",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Assembly binding redirection",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262689",
+          "isCustom": false
+        }
+      ]
+    },
+    "Binding.0006": {
+      "id": "Binding.0006",
+      "isFeature": false,
+      "description": "An explicit binding redirect targets a different version than what auto-generation would produce. MSBuild will throw MSB3836 conflict error because it cannot determine which redirect wins.",
+      "label": "Manual redirect conflicts with auto-generated version",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Assembly binding redirection",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262689",
+          "isCustom": false
+        }
+      ]
+    },
+    "Binding.0007": {
+      "id": "Binding.0007",
+      "isFeature": false,
+      "description": "A binding redirect\u0027s newVersion is lower than the version provided by the NuGet package. This forced downgrade usually causes a load failure at runtime because the expected assembly version is not available.",
+      "label": "Binding redirect forces version downgrade",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Assembly binding redirection",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262689",
+          "isCustom": false
+        }
+      ]
+    }
+  }
+}
